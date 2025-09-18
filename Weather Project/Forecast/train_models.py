@@ -6,9 +6,7 @@ from sklearn.model_selection import train_test_split
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense, Dropout, Input
 
-# --------------------------
-# تجهيز البيانات
-# --------------------------
+
 def read_historical_data(filename):
     df = pd.read_csv(filename)
     df = df.dropna()
@@ -22,9 +20,7 @@ def create_sequences(data, seq_length=10):
         y.append(data[i+seq_length])
     return np.array(X), np.array(y)
 
-# --------------------------
-# بناء الموديلات
-# --------------------------
+
 def build_lstm_regressor(input_shape):
     model = Sequential()
     model.add(Input(shape=input_shape))
@@ -45,11 +41,8 @@ def build_lstm_classifier(input_shape):
     model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
     return model
 
-# --------------------------
-# التدريب وحفظ الموديلات
-# --------------------------
+
 def train_and_save_models():
-    # حمل البيانات
     csv_path = os.path.join(os.path.dirname(__file__), 'data', 'weather.csv')
     historical_data = read_historical_data(csv_path)
 
@@ -68,7 +61,7 @@ def train_and_save_models():
     rain_model = build_lstm_classifier((X_rain.shape[1], 1))
     rain_model.fit(X_train, y_train, epochs=10, batch_size=32, validation_data=(X_test, y_test))
     rain_model.save("models/rain_model.keras")
-    print("✅ RainTomorrow model saved.")
+    print("RainTomorrow model saved.")
 
     # -------- Temperature Regression --------
     temps = historical_data['Temp'].values
@@ -83,7 +76,7 @@ def train_and_save_models():
     temp_model = build_lstm_regressor((X_temp.shape[1], 1))
     temp_model.fit(X_train, y_train, epochs=10, batch_size=32, validation_data=(X_test, y_test))
     temp_model.save("models/temp_model.keras")
-    print("✅ Temperature model saved.")
+    print("Temperature model saved.")
 
     # -------- Humidity Regression --------
     hums = historical_data['Humidity'].values
@@ -98,7 +91,8 @@ def train_and_save_models():
     hum_model = build_lstm_regressor((X_hum.shape[1], 1))
     hum_model.fit(X_train, y_train, epochs=10, batch_size=32, validation_data=(X_test, y_test))
     hum_model.save("models/humidity_model.keras")
-    print("✅ Humidity model saved.")
+    print("Humidity model saved.")
 
 if __name__ == "__main__":
     train_and_save_models()
+
