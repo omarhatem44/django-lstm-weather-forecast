@@ -33,11 +33,10 @@ The app allows users to enter a city name, fetch current weather data, and gener
 ## 📂 Project Structure
 weather-forecasting-lstm-django/  
 │-- manage.py  
-│-- requirements.txt  
-│-- .gitignore  
+│-- requirements.txt    
 │-- README.md  
 │  
-├── weatherApp/        # Django app  
+├── weatherApp/        # Djangoapp 
 │   ├── views.py  
 │   ├── models.py  
 │   ├── urls.py  
