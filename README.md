@@ -20,7 +20,7 @@ The app allows users to enter a city name, fetch current weather data, and gener
 <img src="screenshots/Forecast Results Screenshot 2.png" width="700" alt="Forecast Results Screenshot 2 ">
 
 ### 🔹 Model Training 
-<img src="screenshots/Model Training Screenshot .png
+<img src="screenshots/Model Training Screenshot.png
 " width="700" alt="Model Training Screenshot">
 
 ---
