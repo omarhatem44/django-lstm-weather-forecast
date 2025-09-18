@@ -11,9 +11,7 @@ from tensorflow.keras.models import load_model
 API_Key = '6fc402f41ac04ab882a80aa8d7126677'
 BASE_URL = 'https://api.openweathermap.org/data/2.5/'
 
-# --------------------------
-# جلب الطقس الحالي من API
-# --------------------------
+
 def get_current_weather(city):
     url = f"{BASE_URL}weather?q={city}&appid={API_Key}&units=metric"
     response = requests.get(url)
@@ -34,9 +32,7 @@ def get_current_weather(city):
         'visibility': data['visibility'],
     }
 
-# --------------------------
-# تجهيز البيانات
-# --------------------------
+
 def create_sequences(data, seq_length=10):
     X, y = [], []
     for i in range(len(data) - seq_length):
@@ -56,22 +52,17 @@ def predict_future_lstm(model, data, n_steps=5, seq_length=10):
 
     return predictions
 
-# --------------------------
-# تحميل الموديلات الجاهزة
-# --------------------------
+
 rain_model = load_model("models/rain_model.keras")
 temp_model = load_model("models/temp_model.keras")
 hum_model = load_model("models/humidity_model.keras")
 
-# --------------------------
-# View الرئيسي
-# --------------------------
+
 def weather_view(request):
     if request.method == 'POST':
         city = request.POST.get('city')
         current_weather = get_current_weather(city)
 
-        # حمل البيانات التاريخية
         csv_path = os.path.join(os.path.dirname(__file__), 'data', 'weather.csv')
         historical_data = pd.read_csv(csv_path).dropna().drop_duplicates()
 
@@ -132,3 +123,4 @@ def weather_view(request):
         return render(request, 'weather.html', context)
 
     return render(request, 'weather.html')
+
