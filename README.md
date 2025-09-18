@@ -7,7 +7,23 @@ The app allows users to enter a city name, fetch current weather data, and gener
 - 🌍 Weather data fetching via OpenWeatherMap API.  
 - 🧠 LSTM deep learning model for weather forecasting.  
 - 🖥️ Django-based web application with templates.  
-- 📊 Visualization of predicted vs. actual weather.  
+- 📊 Visualization of predicted vs. actual weather.
+
+  ---
+
+## 🖼️ Screenshots
+
+### 🔹  Forecast Results 1
+<img src="screenshots/Forecast Results Screenshot 1.png" width="700" alt="Forecast Results Screenshot 1 ">
+
+### 🔹 Forecast Results 2
+<img src="screenshots/Forecast Results Screenshot 2.png" width="700" alt="Forecast Results Screenshot 2 ">
+
+### 🔹 Model Training 
+<img src="screenshots/Model Training Screenshot .png
+" width="700" alt="Model Training Screenshot">
+
+---
 
 ## 🛠️ Tech Stack
 - **Backend:** Django, Python  
