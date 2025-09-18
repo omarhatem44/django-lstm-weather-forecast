@@ -13,10 +13,10 @@
 body {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* بدلاً من center */
+    align-items: flex-start; 
     height: 100vh;
     background: #f0f2f5;
-    padding-top: 50px; /* يتحكم في المسافة من فوق */
+    padding-top: 50px; 
 }
 
 
@@ -291,7 +291,7 @@ main.clear {
 .chart-container {
     width: 90%;
     max-width: 800px;
-    height: auto;   /* خليه يتأقلم مع حجم الشارت */
+    height: auto;   
     background: transparent;
     padding: 20px;
     border-radius: 15px;
@@ -303,3 +303,4 @@ main.clear {
     width: 100% !important;
     height: 100px !important
 }
+
